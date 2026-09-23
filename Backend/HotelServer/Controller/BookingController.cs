@@ -25,20 +25,20 @@ namespace Hoteldotnetserver.Controllers
         
         public async Task<ActionResult<BookingsResponse>> CreateBooking([FromBody] CreateBookingRequest request)
         {  
-            Console.WriteLine("========== NEW REQUEST ==========");
-             Console.WriteLine("Controller 1");
-             Console.WriteLine("TRACE = " + HttpContext.TraceIdentifier);
+//             Console.WriteLine("========== NEW REQUEST ==========");
+//              Console.WriteLine("Controller 1");
+//              Console.WriteLine("TRACE = " + HttpContext.TraceIdentifier);
              
-            Console.WriteLine(Guid.NewGuid());
-Console.WriteLine("CreateBooking");
-Console.WriteLine(DateTime.Now);
+//             Console.WriteLine(Guid.NewGuid());
+// Console.WriteLine("CreateBooking");
+// Console.WriteLine(DateTime.Now);
             var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            Console.WriteLine("Controller 2");
+            // Console.WriteLine("Controller 2");
             var result = await BookingService.CreateBookingAsync(request, userId);
-            Console.WriteLine("Controller 3");
-            Console.WriteLine("========================");
+            // Console.WriteLine("Controller 3");
+            // Console.WriteLine("========================");
             return Ok(result);
-            Console.WriteLine("Controller2");
+            // Console.WriteLine("Controller2");
         }
         [HttpPatch("Confirm")]
         

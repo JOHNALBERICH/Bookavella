@@ -1,27 +1,34 @@
-# ===== .NET Backend =====
-bin/
-obj/
+### === Backend (.NET) - HotelServer ===
+Backend/HotelServer/bin/
+Backend/HotelServer/obj/
+Backend/HotelServer/*.user
+Backend/HotelServer/appsettings.Development.json
+
+### === Frontend (React/Vite/TS) - Bookavella ===
+Frontend/Bookavella/node_modules/
+Frontend/Bookavella/dist/
+Frontend/Bookavella/.vite/
+
+### === Env files (rất quan trọng - đang thấy trong ảnh) ===
+**/.env
+!**/.env.example
+
+### === IDE / Editor ===
+.vscode/
 .vs/
-*.user
+.idea/
 *.suo
-appsettings.Development.json
-appsettings.Local.json
-**/Properties/launchSettings.json
-publish/
+*.user
 
-# ===== React/Vite Frontend =====
-node_modules/
-dist/
-dist-ssr/
-.vite/
-.env
-.env.local
-.env.*.local
-*.local
-
-# ===== OS & IDE =====
+### === OS junk ===
 .DS_Store
 Thumbs.db
-.idea/
+
+### === Logs ===
 *.log
-logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+### === Docker ===
+docker-compose.override.yml

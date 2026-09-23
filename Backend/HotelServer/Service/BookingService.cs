@@ -39,7 +39,7 @@ namespace Hoteldotnetserver.Services
         public async Task<BookingsResponse> CreateBookingAsync(CreateBookingRequest request, Guid userId)
         {
             ValidateBookingDates(request.CheckInDate, request.CheckOutDate);// Validate the booking dates
-            Console.WriteLine("1");
+//            Console.WriteLine("1");
             var room = await RoomRepository.GetRoomByIdAsync(request.RoomId)
                 ?? throw new Exception("Room not found.");
             var status = room.RoomStatus;
@@ -48,7 +48,7 @@ namespace Hoteldotnetserver.Services
                 throw new Exception("Room is not available for booking.");
             }
 
-            Console.WriteLine("2");
+            //            Console.WriteLine("2");
             bool hasOverlap = await BookingRepository.HasOverLapAsync(request.RoomId, request.CheckInDate, request.CheckOutDate);
 
             Console.WriteLine($"HasOverlap = {hasOverlap}");
@@ -56,7 +56,7 @@ namespace Hoteldotnetserver.Services
             {
                 throw new Exception("Rooms is not available for the selected dates.");
             }
-           Console.WriteLine("3");
+//           Console.WriteLine("3");
           
             var booking = Mapper.Map<Bookings>(request);
             booking._userId = userId;
@@ -74,14 +74,14 @@ namespace Hoteldotnetserver.Services
             }
             var finalprice = nights * room.ValuePerNight;
             var createdBooking = await BookingRepository.CreateBookingAsync(booking);
-            Console.WriteLine("4");
+//            Console.WriteLine("4");
             
             var response = Mapper.Map<BookingsResponse>(createdBooking);
-            Console.WriteLine("PropertyName = " + response.PropertyName);
-Console.WriteLine("RoomName = " + response.RoomName);
-Console.WriteLine("BedType = " + response.BedType);
-Console.WriteLine("Price = " + response.prices);
-Console.WriteLine(JsonSerializer.Serialize(response));
+//             Console.WriteLine("PropertyName = " + response.PropertyName);
+// Console.WriteLine("RoomName = " + response.RoomName);
+// Console.WriteLine("BedType = " + response.BedType);
+// Console.WriteLine("Price = " + response.prices);
+// Console.WriteLine(JsonSerializer.Serialize(response));
             return response with { prices = finalprice };
         }
 

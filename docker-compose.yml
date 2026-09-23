@@ -1,0 +1,16 @@
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: bookavella-sqlserver
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "${SA_PASSWORD}"
+    ports:
+      - "127.0.0.1:1433:1433"
+    volumes:
+      - bookavella_sql_data:/var/opt/mssql
+    restart: unless-stopped
+
+volumes:
+  bookavella_sql_data:

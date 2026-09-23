@@ -52,11 +52,11 @@ namespace Hoteldotnetserver.Services
         public async Task<DiscountResponse> UpdateDiscountAsync(string code, UpdateDiscountRequest request)
         {
             var existingDiscount = await DiscountRepository.GetDiscountByCodeAsync(code);
-            Console.WriteLine(existingDiscount._discountCode);
-Console.WriteLine(existingDiscount._discountPercentage);
-Console.WriteLine(existingDiscount._startDate);
-Console.WriteLine(existingDiscount._endDate);
-Console.WriteLine(existingDiscount._isActive);
+//             Console.WriteLine(existingDiscount._discountCode);
+// Console.WriteLine(existingDiscount._discountPercentage);
+// Console.WriteLine(existingDiscount._startDate);
+// Console.WriteLine(existingDiscount._endDate);
+// Console.WriteLine(existingDiscount._isActive);
             if (existingDiscount == null)
             {
                 throw new Exception("Discount not found for the specified code.");

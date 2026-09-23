@@ -79,12 +79,12 @@ namespace Hoteldotnetserver.Services
             }
 
             var token = jwtService.GenerateToken(user);
-            Console.WriteLine("Role count: " + user.Role.Length);
+            // Console.WriteLine("Role count: " + user.Role.Length);
 
-            foreach (var role in user.Role)
-            {
-                Console.WriteLine(role);
-            }
+            // foreach (var role in user.Role)
+            // {
+            //     Console.WriteLine(role);
+            // }
             return new AuthResponse
             {
                 token = token,
