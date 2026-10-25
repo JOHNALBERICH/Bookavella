@@ -53,7 +53,7 @@ namespace Hoteldotnetserver.Controllers
         public async Task<ActionResult<PaginationResponse<CommentAndRatingResponse>>> AdminGetAllReviews([FromQuery] ReviewQueryRequest request)
         {
             var reviews = await _reviewService.GetAllCommentsAsync(request);
-            return Ok(reviews);
+            returnOk(reviews);
         }
         
     }

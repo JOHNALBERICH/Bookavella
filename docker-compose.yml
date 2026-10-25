@@ -12,5 +12,13 @@ services:
       - bookavella_sql_data:/var/opt/mssql
     restart: unless-stopped
 
+  aspnetcore:
+    image: mcr.microsoft.com/dotnet/aspnet:9.0
+    container_name: bookavella-aspnetcore
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      
+
+
 volumes:
   bookavella_sql_data:
